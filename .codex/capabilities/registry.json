@@ -1,0 +1,98 @@
+{
+  "version": "1.0.0",
+  "root": ".",
+  "capabilities": [
+    {
+      "id": "bible-devotional",
+      "category": "daily",
+      "sync_policy": "default-cloud-sync",
+      "title": "Bible Devotional",
+      "path": "bible-devotional",
+      "purpose": "Bible passage study, exegesis, biblical theology synthesis, spiritual formation application, discussion design, devotional packaging, and Bible-map slide workflows should route through the devotional orchestrator stack.",
+      "domain_signals": [
+        "bible",
+        "scripture",
+        "biblical",
+        "devotional",
+        "devotion",
+        "exegesis",
+        "hermeneutics",
+        "passage-study",
+        "authorial-intent",
+        "biblical-theology",
+        "redemptive-history",
+        "spiritual-formation",
+        "sermon-support",
+        "discussion-questions",
+        "bible-map",
+        "fhl"
+      ],
+      "artifact_types": [
+        "devotional",
+        "study-flow",
+        "teaching-notes",
+        "slides"
+      ],
+      "skills": [
+        "../skills/devotional-exegesis/SKILL.md",
+        "../skills/biblical-theology-bridge/SKILL.md",
+        "../skills/spiritual-formation-guide/SKILL.md",
+        "../skills/devotional-question-architect/SKILL.md",
+        "../skills/spiritual-slide-composer/SKILL.md"
+      ],
+      "docs": [
+        "bible-devotional/docs/devotional-agent-blueprint.md",
+        "bible-devotional/docs/routing-notes.md"
+      ],
+      "assets": [
+        "../agents/devotional-orchestrator.toml"
+      ],
+      "dispatch": {
+        "mode": "delegate-router",
+        "primary_owner": "devotional-orchestrator",
+        "support_agents": [],
+        "entry_skills": [
+          "../skills/devotional-exegesis/SKILL.md",
+          "../skills/biblical-theology-bridge/SKILL.md",
+          "../skills/spiritual-formation-guide/SKILL.md",
+          "../skills/devotional-question-architect/SKILL.md",
+          "../skills/spiritual-slide-composer/SKILL.md"
+        ],
+        "router_asset": "../agents/devotional-orchestrator.toml",
+        "router_doc": "bible-devotional/docs/routing-notes.md",
+        "execution_required": true,
+        "runtime_overlay": {
+          "mode": "inherit-global",
+          "controller": "root_sol",
+          "executor": {
+            "agent_type": "worker",
+            "reasoning_effort": "inherit-global",
+            "model_role": "inherit-global"
+          },
+          "acceptance_owner": "acceptance_process",
+          "acceptance_runtime": {
+            "agent_type": "worker",
+            "reasoning_effort": "max",
+            "model_role": "sol"
+          },
+          "alternate_executor": "selected_semantic_executor_when_luna_ineligible"
+        },
+        "global_contract": {
+          "validation_tier": "inherit-global",
+          "required_gates": [
+            "inherit-global"
+          ],
+          "required_artifacts": [
+            "inherit-global"
+          ],
+          "normalizer_source": "global.validation_tier_normalization",
+          "normalized": true
+        },
+        "handoff_notes": [
+          "Use the capability-local orchestrator instead of re-encoding devotional dispatch in the top-level router."
+        ]
+      },
+      "children": []
+    }
+  ]
+}

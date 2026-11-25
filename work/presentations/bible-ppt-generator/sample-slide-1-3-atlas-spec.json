@@ -1,0 +1,29 @@
+{
+  "slides": [
+    {
+      "slide": 1,
+      "places": []
+    },
+    {
+      "slide": 2,
+      "places": [
+        { "slug": "shiloh", "place": "示羅", "lid": "0217" },
+        { "slug": "jerusalem", "place": "耶路撒冷" },
+        { "slug": "hebron", "place": "希伯崙" },
+        { "slug": "shechem", "place": "示劍" }
+      ]
+    },
+    {
+      "slide": 3,
+      "places": [
+        { "slug": "gaza", "place": "迦薩" },
+        { "slug": "ashdod", "place": "亞實突" },
+        { "slug": "ashkelon", "place": "亞實基倫" },
+        { "slug": "gath", "place": "迦特" },
+        { "slug": "ekron", "place": "以革倫" },
+        { "slug": "sidon", "place": "西頓" },
+        { "slug": "lebanon", "place": "利巴嫩" }
+      ]
+    }
+  ]
+}
